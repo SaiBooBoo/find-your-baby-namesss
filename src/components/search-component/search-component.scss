@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  width: 100%;
+}
+
+nz-input-search {
+  width: min(100%, 600px);
+}

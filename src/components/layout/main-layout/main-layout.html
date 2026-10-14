@@ -1,0 +1,20 @@
+<nz-layout>
+  <nz-header>
+    <h1 class="logo">Find Your Baby Names</h1>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
+    </ul>
+  </nz-header>
+
+  <nz-content>
+    <div class="content">
+      <app-search-component
+        (searchChange)="onSearchChange($event)"
+      ></app-search-component>
+      <app-display-name
+        [searchTerm]="searchTerm"
+      ></app-display-name>
+    </div>
+  </nz-content>
+
+  <nz-footer>Footer</nz-footer>
+</nz-layout>

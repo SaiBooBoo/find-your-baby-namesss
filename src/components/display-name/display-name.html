@@ -1,0 +1,37 @@
+<nz-table
+  #nameTable
+  ngSkipHydration
+  [nzData]="filteredNames"
+  [nzPageSize]="5"
+  [nzShowPagination]="true"
+>
+  <thead>
+    <tr>
+      <th nzWidth="48px">
+        <label
+          nz-checkbox
+          [nzChecked]="checked"
+          [nzIndeterminate]="indeterminate"
+          (nzCheckedChange)="onAllChecked($event)"
+        ></label>
+      </th>
+      <th>Name</th>
+      <th>Sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (name of nameTable.data; track name.id) {
+      <tr>
+        <td>
+          <label
+            nz-checkbox
+            [nzChecked]="selectedIds.has(name.id)"
+            (nzCheckedChange)="onItemChecked(name.id, $event)"
+          ></label>
+        </td>
+        <td>{{ name.name }}</td>
+        <td>{{ name.sex }}</td>
+      </tr>
+    }
+  </tbody>
+</nz-table>
