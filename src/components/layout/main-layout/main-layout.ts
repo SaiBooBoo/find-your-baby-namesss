@@ -20,9 +20,14 @@ import { DisplayName } from '../../display-name/display-name';
 export class MainLayout {
 
   searchTerm = '';
+  selectedSex: string | null = null;
 
   onSearchChange(searchTerm: string): void {
     this.searchTerm = searchTerm;
+  }
+
+  onGenderChange(sex: string | null): void {
+    this.selectedSex = sex;
   }
 
 }

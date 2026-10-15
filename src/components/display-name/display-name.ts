@@ -40,12 +40,17 @@ export class DisplayName {
 
   selectedIds = new Set<number>();
   @Input() searchTerm = '';
+  @Input() selectedSex: string | null = null;
 
   get filteredNames(): BabyName[] {
     const query = this.searchTerm.trim().toLowerCase();
 
-    return this.names.filter((name) =>
-      name.name.toLowerCase().includes(query)
+    return this.names.filter((baby) => {
+      const matchesName = baby.name.toLowerCase().includes(query);
+      const matchesSex = this.selectedSex === null || baby.sex === this.selectedSex;
+
+      return matchesName && matchesSex;
+    }
     );
   }
 
@@ -71,5 +76,9 @@ export class DisplayName {
       selectedIds.delete(id);
     }
     this.selectedIds = selectedIds;
+  }
+
+   onGenderChange(sex: string): void {
+    this.selectedSex = this.selectedSex === sex ? null : sex;
   }
 }

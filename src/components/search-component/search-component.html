@@ -8,7 +8,20 @@
     nz-input
     nzSize="large"
     [(ngModel)]="value"
-    (ngModelChange)="onValueChange($event)"
     placeholder="Search baby names"
   />
 </nz-input-search>
+
+<div class="gender-selector">
+  <button nz-button
+  [nzType]="selectedSex === 'Male' ? 'primary' : 'default'"
+  (click)="onGenderChange('Male')"
+  >
+    Male</button>
+
+  <button nz-button
+  [nzType]="selectedSex === 'Female' ? 'primary' : 'default'"
+  (click)="onGenderChange('Female')"
+  >
+    Female</button>
+</div>

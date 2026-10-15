@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 
 @Component({
-  imports: [FormsModule, NzInputModule, NzIconModule],
+  imports: [FormsModule, NzInputModule, NzIconModule, NzButtonModule],
   selector: 'app-search-component',
   styleUrl: './search-component.scss',
   templateUrl: './search-component.html',
@@ -12,13 +13,10 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 export class SearchComponent {
   value = '';
   readonly isLoading = signal(false);
+  selectedSex: string | null = null;
 
   @Output() searchChange = new EventEmitter<string>();
-
-  onValueChange(value: string): void {
-    this.value = value;
-    this.searchChange.emit(value);
-  }
+  @Output() genderChange = new EventEmitter<string | null>();
 
   onSearch(): void {
     if (this.isLoading()) {
@@ -30,5 +28,10 @@ export class SearchComponent {
     setTimeout(() => {
       this.isLoading.set(false);
     }, 300);
+  }
+
+    onGenderChange(sex: string): void {
+    this.selectedSex = this.selectedSex === sex ? null : sex;
+    this.genderChange.emit(this.selectedSex);
   }
 }

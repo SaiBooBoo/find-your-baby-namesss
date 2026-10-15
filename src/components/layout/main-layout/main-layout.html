@@ -9,12 +9,16 @@
     <div class="content">
       <app-search-component
         (searchChange)="onSearchChange($event)"
+        (genderChange)="onGenderChange($event)"
       ></app-search-component>
       <app-display-name
         [searchTerm]="searchTerm"
+        [selectedSex]="selectedSex"
       ></app-display-name>
     </div>
   </nz-content>
 
-  <nz-footer>Footer</nz-footer>
+  <nz-footer class="app-footer">
+  <span>© 2026 Sai Shen. All rights reserved.</span>
+</nz-footer>
 </nz-layout>
