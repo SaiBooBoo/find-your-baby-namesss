@@ -1,11 +1,11 @@
 import { Component, Input, inject } from '@angular/core';
 import { NzFloatButtonModule } from 'ng-zorro-antd/float-button';
-import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { BabyName } from '../../display-name/baby-name.model';
 import { SelectedNamesModal } from './selected-names-modal';
 
 @Component({
-  imports: [NzFloatButtonModule, NzModalModule, SelectedNamesModal],
+  imports: [NzFloatButtonModule, SelectedNamesModal],
   selector: 'app-float-name-list',
   styleUrl: './float-name-list.scss',
   templateUrl: './float-name-list.html',
@@ -17,11 +17,9 @@ export class FloatNameList {
   private readonly modal = inject(NzModalService);
 
   openSelectedNamesModal(): void {
-    this.modal.create({
-      nzTitle: 'Selected Names',
+    const modalRef = this.modal.create({
       nzContent: SelectedNamesModal,
-      nzComponentParams: { names: this.selectedNames },
-      nzFooter: null,
     });
+    modalRef.componentInstance!.names = this.selectedNames;
   }
 }
