@@ -1,8 +1,8 @@
 import { Component, Input, inject } from '@angular/core';
 import { NzFloatButtonModule } from 'ng-zorro-antd/float-button';
 import { NzModalService } from 'ng-zorro-antd/modal';
-import { BabyName } from '../../display-name/baby-name.model';
 import { SelectedNamesModal } from './selected-names-modal';
+
 
 @Component({
   imports: [NzFloatButtonModule, SelectedNamesModal],
@@ -22,4 +22,9 @@ export class FloatNameList {
     });
     modalRef.componentInstance!.names = this.selectedNames;
   }
+}
+export interface BabyName {
+  id: number;
+  name: string;
+  sex: 'Female' | 'Male';
 }
