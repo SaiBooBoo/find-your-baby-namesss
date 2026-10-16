@@ -14,11 +14,14 @@
       <app-display-name
         [searchTerm]="searchTerm"
         [selectedSex]="selectedSex"
+        (checkedChange)="onCheckedChange($event)"
       ></app-display-name>
     </div>
+     <app-float-name-list [checkedCount]="checkedCount"></app-float-name-list>
   </nz-content>
 
+
   <nz-footer class="app-footer">
-  <span>© 2026 Sai Shen. All rights reserved.</span>
+  <span>© 2026 Sai Shen Nam Kham. All rights reserved.</span>
 </nz-footer>
 </nz-layout>

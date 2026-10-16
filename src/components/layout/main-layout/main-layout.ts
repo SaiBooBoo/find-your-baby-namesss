@@ -5,6 +5,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { SearchComponent } from '../../search-component/search-component';
 import { DisplayName } from '../../display-name/display-name';
+import { FloatNameList } from '../../float-name-list/float-name-list';
 
 @Component({
   imports: [NzBreadCrumbModule,
@@ -12,7 +13,8 @@ import { DisplayName } from '../../display-name/display-name';
      NzLayoutModule,
      NzMenuModule,
      SearchComponent,
-     DisplayName],
+     DisplayName,
+     FloatNameList],
   selector: 'app-main-layout',
   styleUrl: './main-layout.scss',
   templateUrl: './main-layout.html',
@@ -21,6 +23,7 @@ export class MainLayout {
 
   searchTerm = '';
   selectedSex: string | null = null;
+  checkedCount = 0;
 
   onSearchChange(searchTerm: string): void {
     this.searchTerm = searchTerm;
@@ -28,6 +31,10 @@ export class MainLayout {
 
   onGenderChange(sex: string | null): void {
     this.selectedSex = sex;
+  }
+
+  onCheckedChange(count: number): void {
+    this.checkedCount = count;
   }
 
 }

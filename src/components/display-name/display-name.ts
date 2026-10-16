@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTableModule } from 'ng-zorro-antd/table';
 
@@ -41,6 +41,7 @@ export class DisplayName {
   selectedIds = new Set<number>();
   @Input() searchTerm = '';
   @Input() selectedSex: string | null = null;
+  @Output() checkedChange = new EventEmitter<number>();
 
   get filteredNames(): BabyName[] {
     const query = this.searchTerm.trim().toLowerCase();
@@ -66,6 +67,7 @@ export class DisplayName {
     this.selectedIds = checked
       ? new Set(this.names.map(({ id }) => id))
       : new Set<number>();
+    this.checkedChange.emit(this.selectedIds.size);
   }
 
   onItemChecked(id: number, checked: boolean): void {
@@ -76,6 +78,7 @@ export class DisplayName {
       selectedIds.delete(id);
     }
     this.selectedIds = selectedIds;
+    this.checkedChange.emit(this.selectedIds.size);
   }
 
    onGenderChange(sex: string): void {
