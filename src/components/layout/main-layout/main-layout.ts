@@ -3,6 +3,7 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { BabyName } from '../../display-name/baby-name.model';
 import { SearchComponent } from '../../search-component/search-component';
 import { DisplayName } from '../../display-name/display-name';
 import { FloatNameList } from '../../float-name-list/float-name-list';
@@ -24,6 +25,7 @@ export class MainLayout {
   searchTerm = '';
   selectedSex: string | null = null;
   checkedCount = 0;
+  selectedNames: BabyName[] = [];
 
   onSearchChange(searchTerm: string): void {
     this.searchTerm = searchTerm;
@@ -37,4 +39,7 @@ export class MainLayout {
     this.checkedCount = count;
   }
 
+  onSelectedNamesChange(names: BabyName[]): void {
+    this.selectedNames = names;
+  }
 }

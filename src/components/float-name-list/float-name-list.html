@@ -1,4 +1,9 @@
 <p>float-name-list works!</p>
 <nz-float-button-group>
-  <nz-float-button [nzBadge]="{ nzCount: checkedCount }" nzIcon="file-done" nzTheme="outline"></nz-float-button>
+  <nz-float-button
+    [nzBadge]="{ nzCount: checkedCount }"
+    nzIcon="file-done"
+    nzTheme="outline"
+    (click)="openSelectedNamesModal()"
+  ></nz-float-button>
 </nz-float-button-group>
