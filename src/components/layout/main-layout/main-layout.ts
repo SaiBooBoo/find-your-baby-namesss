@@ -42,4 +42,9 @@ export class MainLayout {
   onSelectedNamesChange(names: BabyName[]): void {
     this.selectedNames = names;
   }
+
+  onRemoveName(id: number): void {
+    this.selectedNames = this.selectedNames.filter((name) => name.id !== id);
+    this.checkedCount = this.selectedNames.length;
+  }
 }

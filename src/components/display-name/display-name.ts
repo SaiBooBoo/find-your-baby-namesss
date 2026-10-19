@@ -36,6 +36,9 @@ export class DisplayName {
   selectedIds = new Set<number>();
   @Input() searchTerm = '';
   @Input() selectedSex: string | null = null;
+  @Input() set selectedNames(names: BabyName[]) {
+    this.selectedIds = new Set(names.map(({ id }) => id));
+  }
   @Output() checkedChange = new EventEmitter<number>();
   @Output() selectedNamesChange = new EventEmitter<BabyName[]>();
 

@@ -14,11 +14,16 @@
       <app-display-name
         [searchTerm]="searchTerm"
         [selectedSex]="selectedSex"
+        [selectedNames]="selectedNames"
         (checkedChange)="onCheckedChange($event)"
         (selectedNamesChange)="onSelectedNamesChange($event)"
       ></app-display-name>
     </div>
-     <app-float-name-list [checkedCount]="checkedCount" [selectedNames]="selectedNames"></app-float-name-list>
+    <app-float-name-list
+      [checkedCount]="checkedCount"
+      [selectedNames]="selectedNames"
+      (removeName)="onRemoveName($event)"
+    ></app-float-name-list>
   </nz-content>
 
 
