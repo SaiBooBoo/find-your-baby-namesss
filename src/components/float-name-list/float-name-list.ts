@@ -7,6 +7,7 @@ import { BabyName } from '../display-name/baby-name.model';
 @Component({
   imports: [NzFloatButtonModule],
   selector: 'app-float-name-list',
+  styleUrl: './float-name-list.scss',
   templateUrl: './float-name-list.html',
 })
 export class FloatNameList {

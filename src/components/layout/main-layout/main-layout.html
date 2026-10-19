@@ -1,24 +1,37 @@
-<nz-layout>
+<nz-layout nz-row class="page-layout" nzJustify="start">
   <nz-header>
-    <h1 class="logo">Find Your Baby Names</h1>
-    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
-    </ul>
+    <div class="header-inner">
+      <h1 class="logo">Find Your Baby Names</h1>
+      <p class="header-caption">A simple way to find the names you love</p>
+    </div>
   </nz-header>
 
-  <nz-content>
-    <div class="content">
-      <app-search-component
-        (searchChange)="onSearchChange($event)"
-        (genderChange)="onGenderChange($event)"
-      ></app-search-component>
-      <app-display-name
-        [searchTerm]="searchTerm"
-        [selectedSex]="selectedSex"
-        [selectedNames]="selectedNames"
-        (checkedChange)="onCheckedChange($event)"
-        (selectedNamesChange)="onSelectedNamesChange($event)"
-      ></app-display-name>
-    </div>
+  <nz-content nz-row nzJustify="center">
+    <main class="content" nz-col nzSpan="22">
+      <section class="search-panel" aria-label="Search and filter names">
+        <app-search-component
+          (searchChange)="onSearchChange($event)"
+          (genderChange)="onGenderChange($event)"
+        ></app-search-component>
+      </section>
+
+      <section class="results-panel" aria-labelledby="results-title">
+        <div class="results-heading">
+          <div>
+            <h2 id="results-title">Browse names</h2>
+            <p>Select any names to keep them in your list.</p>
+          </div>
+        </div>
+        <app-display-name
+          [searchTerm]="searchTerm"
+          [selectedSex]="selectedSex"
+          [selectedNames]="selectedNames"
+          (checkedChange)="onCheckedChange($event)"
+          (selectedNamesChange)="onSelectedNamesChange($event)"
+        ></app-display-name>
+      </section>
+    </main>
+
     <app-float-name-list
       [checkedCount]="checkedCount"
       [selectedNames]="selectedNames"
@@ -26,8 +39,7 @@
     ></app-float-name-list>
   </nz-content>
 
-
   <nz-footer class="app-footer">
-  <span>© 2026 Sai Shen Nam Kham. All rights reserved.</span>
-</nz-footer>
+    <span>© 2026 Sai Shen Nam Kham. All rights reserved.</span>
+  </nz-footer>
 </nz-layout>

@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+:host ::ng-deep .ant-table {
+  color: #202020;
+}
+
+:host ::ng-deep .ant-table-thead > tr > th {
+  background: #f2f2f2;
+  color: #222;
+  font-weight: 600;
+}
+
+:host ::ng-deep .ant-table-tbody > tr:hover > td {
+  background: #f7f7f7;
+}
+
+:host ::ng-deep .ant-pagination-item-active {
+  border-color: #111;
+}
+
+:host ::ng-deep .ant-pagination-item-active a,
+:host ::ng-deep .ant-pagination-item a:hover {
+  color: #111;
+}
